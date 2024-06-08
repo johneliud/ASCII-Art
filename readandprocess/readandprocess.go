@@ -20,7 +20,14 @@ func ReadAndProcess(bannerFile string) ([]string, error) {
 		splitBannerFileData = strings.Split(string(bannerFileData), "\n")
 	}
 
-	if len(splitBannerFileData) != 856 {
+	bannerFileDetails, err := os.Stat(bannerFile)
+	if err != nil {
+		return nil, err
+	}
+
+	bannerFileSize := bannerFileDetails.Size()
+
+	if bannerFileSize != 6623 && bannerFileSize != 7463 && bannerFileSize != 5558 {
 		return nil, fmt.Errorf("corrupted file")
 	}
 
