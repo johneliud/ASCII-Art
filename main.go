@@ -30,7 +30,7 @@ Usage: go run. "hello" "thinkertoy.txt"`)
 		bannerFont = "standard.txt"
 	}
 
-	bannerFile, err := readandprocess.ReadAndProcess("banner-files/" + bannerFont)
+	bannerFile, err := readandprocess.ReadAndProcess(bannerFont)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
